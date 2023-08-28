@@ -1,10 +1,21 @@
 <script setup>
+import { ref } from 'vue';
 
+const counter = ref(0)
+
+const increase = () => {
+  counter.value++
+}
+const descrease = () => {
+  counter.value--
+}
 </script>
 
 <template>
-  <div>
-  Работает!
+  <div class="test">
+ {{ counter }}
+ <button @click="increase">Увеличить</button>
+ <button @click="descrease">Уменьшить</button>
   </div>
     
 </template>
