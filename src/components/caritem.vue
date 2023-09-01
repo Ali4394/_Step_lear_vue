@@ -18,4 +18,17 @@ const car = defineProps({
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.car{
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
+  margin-top: 100px;
+  flex-direction: column;
+
+}
+.car img{
+  width: 400px;
+  height: 230px;
+}
+</style>
