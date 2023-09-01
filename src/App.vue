@@ -1,12 +1,13 @@
 <script setup>
 import buttonDelete from "@/components/buttonDelete.vue";
 import carItem from "@/components/caritem.vue";
-import carlist from "@/components/carlist.vue";
 </script>
 
 <template>
-  <buttonDelete />
-  <carItem />
+  <div>
+    <buttonDelete />
+    <carItem />
+  </div>
 </template>
 
 <style scoped></style>

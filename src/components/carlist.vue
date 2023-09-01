@@ -1,5 +1,6 @@
 <script setup>
 import carItem from "@/components/caritem.vue";
+
 const carsArray = [
   {
     brand: "BVW",
@@ -11,12 +12,10 @@ const carsArray = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFN0lN7T1WyAETO84V2umxeofkkkl6684bmI01rC_I&s",
   },
 ];
-
-console.log(carsArray);
 </script>
 
 <template>
-  <section class="cars" b-for="car in carsArray" :key="car">
+  <section class="cars" v-for="car in carsArray" :key="car.brand">
     <carItem :car="car" />
   </section>
 </template>
