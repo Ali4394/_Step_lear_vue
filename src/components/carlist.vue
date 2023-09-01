@@ -7,7 +7,7 @@ const carsArray = [
     price: "2000000",
     year: 2020,
     volume: 2.4,
-    color: "Red",
+    color: "#00FF00",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjYgsB_iywqC-ZvH34lxMNAmcz5X5XNrLQug&usqp=CAU",
   },
