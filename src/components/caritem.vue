@@ -1,5 +1,10 @@
 <script setup>
 import { defineProps, computed } from 'vue';
+import Card from 'primevue/card';
+import Chip from 'primevue/chip';
+import 'primevue/resources/themes/saga-blue/theme.css'
+import 'primevue/resources/primevue.min.css'
+import 'primeicons/primeicons.css';
 
 
 const props = defineProps({
@@ -28,23 +33,35 @@ function changeColor(color){
 </script>
 
 <template>
-  <div class="car">
-    <img :src="carRemake.image" alt="car" />
-    <h2>{{ carRemake.brand }}</h2>
+  <card>
+    <template #header > <img :src="carRemake.image" alt="car" /></template>
+    <template #title>{{ carRemake.brand }}</template>
+    <template #content>
+  <!-- <div class="car"> -->
+   
+    <!-- <h2>{{ carRemake.brand }}</h2> -->
     <p>Цена: {{carRemake.price }}</p>
     <p>Год выпуска: {{ carRemake.year }}</p>
     <p>KPD: {{ carRemake.kpd }}</p>
     <p>Объем двигателя: {{ carRemake.volume }}</p>
     <p :style="`color: ${carRemake.color }`">Цвет: {{ carRemake.color }}</p>
+  </template>
+  <template #footer>
     <div class="chipes">
-    <span v-if="Number(carRemake.price.slice(0, -1))> 1900000">Very expensive</span>
+      <Chip v-if="Number(carRemake.price.slice(0, -1))> 1900000" label="Very expensive" icon="pi pi-dollar" />
+  
     <!-- <span v-else-if="Number(carRemake.price.slice(0, -1))= 1000000">ok</span> -->
-    <span v-else>podumai</span>
-    <span v-if="Number(carRemake.year)> 2018">New car</span>
-    <span v-if="changeColor(carRemake.color)">Bad color</span>
-  </div>
+    <!-- <span v-else>podumai</span> -->
+    <Chip style="margin:10px;" v-if="Number(carRemake.year)> 2018" label="New car" icon="pi pi-car" />
+    <!-- <span v-if="Number(carRemake.year)> 2018">New car</span> -->
+    <Chip v-if="changeColor(carRemake.color)" label="Bad color" icon="pi pi-wrench" />
+    <!-- <span v-if="changeColor(carRemake.color)">Bad color</span> -->
   </div>
 </template>
+  <!-- </div> -->
+</card>
+</template>
+
 
 <style scoped>
 .car{
