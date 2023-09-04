@@ -7,6 +7,7 @@ import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css';
 
 
+
 const props = defineProps({
   car: {
     type: Object,
@@ -60,6 +61,7 @@ function changeColor(color){
 </template>
   <!-- </div> -->
 </card>
+
 </template>
 
 
