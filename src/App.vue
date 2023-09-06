@@ -3,6 +3,9 @@ import buttonDelete from "@/components/buttonDelete.vue";
 // import carItem from "@/components/caritem.vue";
 import carlist from "@/components/carlist.vue";
 import CarTable from "@/components/carTable.vue";
+import panel from "@/components/panel.vue";
+import toast from "@/components/toast.vue";
+
 
 
 const cars = [
@@ -35,6 +38,8 @@ const cars = [
     <buttonDelete />
     <carlist :cars="cars"/>
     <CarTable :cars="cars" />
+    <panel />
+    <toast />
     <!-- <carItem /> -->
  
 </template>
