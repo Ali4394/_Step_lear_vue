@@ -1,11 +1,12 @@
 <script setup>
-import buttonDelete from "@/components/buttonDelete.vue";
+
 // import carItem from "@/components/caritem.vue";
 import carlist from "@/components/carlist.vue";
 import CarTable from "@/components/carTable.vue";
 import panel from "@/components/panel.vue";
-import toast from "@/components/toast.vue";
+// import toast from "@/components/toast.vue";
 
+import navbar from "@/components/layout/Navbar.vue"
 
 
 const cars = [
@@ -35,11 +36,12 @@ const cars = [
 </script>
 
 <template>
-    <buttonDelete />
+
     <carlist :cars="cars"/>
     <CarTable :cars="cars" />
     <panel />
-    <toast />
+    <navbar/>
+
     <!-- <carItem /> -->
  
 </template>
