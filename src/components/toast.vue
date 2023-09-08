@@ -1,18 +1,21 @@
-<!-- <script setup>
+
+<script setup>
 
 import Toast from 'primevue/toast';
+// import { ref } from "vue";
 
-import {createApp} from 'vue';
-import ToastService from 'primevue/toastservice';
+import "primeicons/primeicons.css";
 
-// const app = createApp(App);
-app.use(ToastService);
-
-import { useToast } from 'primevue/usetoast';
-
-const toast = useToast();
+const show = () => {
+    toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3000 });
+};
 </script>
+
+
 <template>
-    <Toast />
-    <Button label="Show" @click="show(true)" />
-</template> -->
+    <div class="card flex justify-content-center">
+        <Toast />
+        <Button label="Show" @click="show()"  icon="pi pi-plus"/>
+    </div>
+</template>
+

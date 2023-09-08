@@ -4,9 +4,11 @@
 import carlist from "@/components/carlist.vue";
 import CarTable from "@/components/carTable.vue";
 import panel from "@/components/panel.vue";
-// import toast from "@/components/toast.vue";
+import toast from "@/components/toast.vue";
 
 import navbar from "@/components/layout/Navbar.vue"
+
+
 
 
 const cars = [
@@ -36,11 +38,13 @@ const cars = [
 </script>
 
 <template>
-
+  <navbar/>
+  <toast />
     <carlist :cars="cars"/>
     <CarTable :cars="cars" />
     <panel />
-    <navbar/>
+   
+   
 
     <!-- <carItem /> -->
  
