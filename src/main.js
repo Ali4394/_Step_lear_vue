@@ -1,14 +1,16 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import PrimeVue from 'primevue/config';
-import 'primevue/resources/themes/lara-dark-indigo/theme.css'
-import 'primevue/resources/primevue.min.css'
+import PrimeVue from "primevue/config";
+import "primevue/resources/themes/lara-dark-indigo/theme.css";
+import "primevue/resources/primevue.min.css";
+
+import ToastService from "primevue/toastservice";
+
 // import 'primeicons/primeicons.css'
 
-
-import { createApp } from 'vue'
-import App from './App.vue'     
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
 
 import { initializeApp } from "firebase/app";
 // import { getFirestore } from 'firebase/firestore'
@@ -20,18 +22,14 @@ const firebaseConfig = {
   projectId: "vue-project-e9928",
   storageBucket: "vue-project-e9928.appspot.com",
   messagingSenderId: "862302655764",
-  appId: "1:862302655764:web:ac642b2c4d6a71d9e65e01"
+  appId: "1:862302655764:web:ac642b2c4d6a71d9e65e01",
 };
-
 
 initializeApp(firebaseConfig);
 
-const app = createApp(App)
-
-app.use(router)
+const app = createApp(App);
+app.use(ToastService);
+app.use(router);
 app.use(PrimeVue);
 
-app.mount('#app')
-
-
-
+app.mount("#app");
