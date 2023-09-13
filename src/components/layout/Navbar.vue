@@ -142,12 +142,12 @@ const items = ref([
   },
 ]);
 
-const { autoList, getAutoList } = useAuto();
+// const { autoList, getAutoList } = useAuto();
 
-onMounted(async () => {
-  await getAutoList();
-  console.log(autoList.value);
-});
+// onMounted(async () => {
+//   await getAutoList();
+//   console.log(autoList.value);
+// });
 
 const googleRegister = () => {
   const auth = getAuth();

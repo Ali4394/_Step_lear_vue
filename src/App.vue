@@ -36,8 +36,8 @@ import carAddModul from "@/components/carAddModul.vue";
   <navbar />
   <ToastButton />
   <carAddModul />
-  <carlist :cars="cars" />
-  <CarTable :cars="cars" />
+  <carlist />
+  <CarTable  />
   <panel />
 
   <!-- <carItem /> -->

@@ -15,7 +15,7 @@ import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import { useAuto } from "@/composable/useAuto";
 
-const { autoList, getAutoList, loading } = useAuto();
+const { autoListRemake, getAutoList, loading } = useAuto();
 
 onMounted(() => {
   getAutoList();

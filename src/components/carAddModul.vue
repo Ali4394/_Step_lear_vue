@@ -13,7 +13,7 @@
           <label for="brand">Бренд</label>
           <Dropdown
             id="brand"
-            v-model="car.brand"
+            v-model="newAuto.brand"
             editable
             :options="brandLabel"
             option-label="brand"
@@ -25,7 +25,7 @@
           <label for="price">Цена</label>
           <InputNumber
             id="price"
-            v-model="car.price"
+            v-model="newAuto.price"
             mode="currency"
             currency="KZT"
             locale="ru-ru"
@@ -33,21 +33,21 @@
         </div>
         <div class="p-field">
           <label for="year">Год</label>
-          <Calendar id="year" v-model="car.year" view="year" dateFormat="yy" />
+          <Calendar id="year" v-model="newAuto.year" view="year" dateFormat="yy" />
         </div>
         <div class="p-field">
           <label for="volume">Объем</label>
-          <InputNumber id="volume" v-model="car.volume" inputId="integeronly" />
+          <InputNumber id="volume" v-model="newAuto.volume" inputId="integeronly" />
         </div>
         <div class="p-field">
           <label for="color">Цвет</label>
-          <ColorPicker id="color" v-model="car.color" />
+          <ColorPicker id="color" v-model="newAuto.color" />
         </div>
         <div class="p-field">
           <label for="city">Город</label>
           <Dropdown
             id="city"
-            v-model="car.city"
+            v-model="newAuto.city"
             editable
             :options="kazakhcity"
             option-label="city"
@@ -59,7 +59,7 @@
           <label for="carcase">Кузов</label>
           <Dropdown
             id="carcase"
-            v-model="car.carcase"
+            v-model="newAuto.carcase"
             editable
             :options="carcasec"
             option-label="carcase"
@@ -73,7 +73,7 @@
             <div class="flex align-items-center">
               <RadioButton
                 id="gear"
-                v-model="car.gear"
+                v-model="newAuto.gear"
                 inputId="tip1"
                 name="Коробка"
                 value="Механическая"
@@ -83,7 +83,7 @@
             <div class="flex align-items-center">
               <RadioButton
                 id="gear"
-                v-model="car.gear"
+                v-model="newAuto.gear"
                 inputId="tip2"
                 name="Коробка"
                 value="Автоматическая"
@@ -93,17 +93,7 @@
             <div class="flex align-items-center">
               <RadioButton
                 id="gear"
-                v-model="car.gear"
-                inputId="tip3"
-                name="Коробка"
-                value="Роботизированная"
-              />
-              <label for="tip3" class="ml-2">Роботизированная</label>
-            </div>
-            <div class="flex align-items-center">
-              <RadioButton
-                id="gear"
-                v-model="car.gear"
+                v-model="newAuto.gear"
                 inputId="tip4"
                 name="Коробка"
                 value="Вариативная"
@@ -114,18 +104,18 @@
         </div>
         <div class="p-field">
           <label for="travel">Пробег</label>
-          <InputText id="travel" v-model.number="car.travel" />
-          <Slider id="travel" v-model="car.travel" />
+          <InputText id="travel" v-model.number="newAuto.travel" />
+          <Slider id="travel" v-model="newAuto.travel" :min="0" :max="100" />
         </div>
       </div>
     </template>
     <template #footer>
-      <Button label="Сбросить" icon="pi pi-times" @click="toogleVisible" text>
+      <Button label="Сбросить" icon="pi pi-times" @click="clearAuto" text>
       </Button>
       <Button
         label="Добавить"
         icon="pi pi-check"
-        @click="toogleVisible"
+        @click="addAuto"
         autofocus
       >
       </Button>
@@ -144,6 +134,11 @@ import Calendar from "primevue/calendar";
 import ColorPicker from "primevue/colorpicker";
 import RadioButton from "primevue/radiobutton";
 import Slider from "primevue/slider";
+import {useAuto} from '@/composable/useAuto';
+// import { async } from "@firebase/util";
+
+
+const {newAuto, createAuto, loading, clear} =useAuto()
 
 const visible = ref(false);
 
@@ -151,18 +146,44 @@ const toogleVisible = () => {
   visible.value = !visible.value;
 };
 
-const car = ref({
-  brand: "",
-  price: "",
-  year: "",
-  volume: "",
-  color: "",
-  saled: "",
-  city: "",
-  carcase: "",
-  gear: "",
-  travel: "",
-});
+
+async function addAuto(){
+  await createAuto()
+  toogleVisible()
+}
+
+
+function clearAuto(){
+  clear()
+  toogleVisible()
+}
+
+
+
+// const newAuto = ref({
+//   brand: "",
+//   price: "",
+//   year: "",
+//   volume: "",
+//   color: "",
+//   saled: false,
+//   city: "",
+//   carcase: "",
+//   gear: "",
+//   travel: 0,
+//   image: null
+// });
+
+
+
+
+
+
+
+
+
+
+
 
 const brandLabel = [
   { brand: "BMW" },
