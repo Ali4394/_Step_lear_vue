@@ -7,6 +7,7 @@ import ToastButton from "@/components/ToastButton.vue";
 
 import navbar from "@/components/layout/Navbar.vue";
 import carAddModul from "@/components/carAddModul.vue";
+import carcard from "@/components/carCard.vue";
 
 // const cars = [
 //   {
@@ -34,13 +35,14 @@ import carAddModul from "@/components/carAddModul.vue";
 
 <template>
   <navbar />
+
   <ToastButton />
   <carAddModul />
-  <carlist />
   <CarTable  />
   <panel />
-
-  <!-- <carItem /> -->
+  <carcard />
+  <carlist />
+  <carItem />
 </template>
 
 <style scoped></style>

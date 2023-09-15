@@ -107,6 +107,11 @@
           <InputText id="travel" v-model.number="newAuto.travel" />
           <Slider id="travel" v-model="newAuto.travel" :min="0" :max="100" />
         </div>
+        <div class="p-field">
+          <Toast />
+          <label for="photo">Image</label>
+          <FileUpload id="photo" v-model="newAuto" mode="basic"  accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+      </div>
       </div>
     </template>
     <template #footer>
@@ -136,7 +141,7 @@ import RadioButton from "primevue/radiobutton";
 import Slider from "primevue/slider";
 import {useAuto} from '@/composable/useAuto';
 // import { async } from "@firebase/util";
-
+import FileUpload from 'primevue/fileupload';
 
 const {newAuto, createAuto, loading, clear} =useAuto()
 

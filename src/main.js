@@ -5,13 +5,12 @@ import "primevue/resources/themes/lara-dark-indigo/theme.css";
 import "primevue/resources/primevue.min.css";
 
 import ToastService from "primevue/toastservice";
-
 // import 'primeicons/primeicons.css'
 
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-
+import Card from 'primevue/card';
 import { initializeApp } from "firebase/app";
 // import { getFirestore } from 'firebase/firestore'
 // import { getStorage } from 'firebase/storage'
@@ -28,6 +27,8 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 const app = createApp(App);
+
+app.component('Card', Card);
 app.use(ToastService);
 app.use(router);
 app.use(PrimeVue);
