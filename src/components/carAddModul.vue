@@ -109,8 +109,15 @@
         </div>
         <div class="p-field">
           <Toast />
-          <label for="photo">Image</label>
-          <FileUpload id="photo" v-model="newAuto" mode="basic"  accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+          <form class="input__wrapper" enctype="multipart/form-data">
+            <input id="inputfile" class="input inputfile" name="images" type="file" accept=".jpg, .png" @input="onUpload($event)" />
+            <label for="inputfile" class="inputfile-button">
+              <span class="input__file-icon-wrapper">
+                <img class="input__file-icon" src="@/assets/uploadImage.png" alt="Выбрать файл" width="25" />
+              </span>
+              <span class="input__file-button-text">Машинка</span>
+            </label>
+          </form>
       </div>
       </div>
     </template>
@@ -143,7 +150,7 @@ import {useAuto} from '@/composable/useAuto';
 // import { async } from "@firebase/util";
 import FileUpload from 'primevue/fileupload';
 
-const {newAuto, createAuto, loading, clear} =useAuto()
+const {newAuto, createAuto, loading, clear, uploadImage} =useAuto()
 
 const visible = ref(false);
 
@@ -164,7 +171,10 @@ function clearAuto(){
 }
 
 
-
+async function onUpload(e) {
+  const image = e.target.files[0]
+  await uploadImage(image)
+}
 // const newAuto = ref({
 //   brand: "",
 //   price: "",
@@ -231,4 +241,10 @@ const carcasec = [
 ];
 </script>
 
-<style scoped></style>
+<style scoped>
+.input__file-icon{
+  width: 5px;
+  height: 20px;
+}
+
+</style>

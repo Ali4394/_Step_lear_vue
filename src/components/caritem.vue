@@ -28,8 +28,9 @@ function changeColor(color){
 </script>
 
 <template>
+  <div class="card">
   <card>
-    <template #header > <img :src="auto.image" alt="car" /></template>
+    <template #header > <img class="img" :src="auto.image" alt="car" /></template>
     <template #title>{{ auto.brand }}</template>
     <template #content>
   <!-- <div class="car"> -->
@@ -55,7 +56,28 @@ function changeColor(color){
 </template>
   <!-- </div> -->
 </card>
-
+</div>
 </template>
+<style scoped>
+
+
+.card{
+  display: flex;
+  margin: 10px;
+
+}
+
+
+
+
+.img{
+
+max-width: 250px;
+min-width: 50px;
+max-height: 350px;
+min-height: 200px;
+}
+
+</style>
 
 

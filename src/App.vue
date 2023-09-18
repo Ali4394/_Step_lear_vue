@@ -1,13 +1,14 @@
 <script setup>
 // import carItem from "@/components/caritem.vue";
-import carlist from "@/components/carlist.vue";
-import CarTable from "@/components/carTable.vue";
-import panel from "@/components/panel.vue";
-import ToastButton from "@/components/ToastButton.vue";
+// import carlist from "@/components/carlist.vue";
+// import CarTable from "@/components/carTable.vue";
+// import panel from "@/components/panel.vue";
+// import ToastButton from "@/components/ToastButton.vue";
 
 import navbar from "@/components/layout/Navbar.vue";
-import carAddModul from "@/components/carAddModul.vue";
-import carcard from "@/components/carCard.vue";
+// import carAddModul from "@/components/carAddModul.vue";
+// import carcard from "@/components/carCard.vue";
+import { RouterView } from "vue-router";
 
 // const cars = [
 //   {
@@ -36,13 +37,14 @@ import carcard from "@/components/carCard.vue";
 <template>
   <navbar />
 
-  <ToastButton />
+  <!-- <ToastButton />
   <carAddModul />
   <CarTable  />
   <panel />
   <carcard />
   <carlist />
-  <carItem />
+  <carItem /> -->
+  <router-view />
 </template>
 
 <style scoped></style>
