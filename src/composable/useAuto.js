@@ -70,6 +70,22 @@ export const useAuto = () => {
   }
 
 
+async function getAuto(id){
+  // const id = loading.value.id
+  loading.value.id= true
+  try {const querySnapshot = await getDocs(collection(db, 'autos'))
+querySnapshot.forEach((doc)=>{
+  if(doc.data().id===id){
+    auto.value=doc.data()
+  }
+})
+} catch(e){
+  console.error('Error:', e)
+}finally{loading.value.auto =false}
+}
+
+
+
   async function uploadImage(file) {
     console.log(file)
     const storage = getStorage()
@@ -120,6 +136,7 @@ export const useAuto = () => {
   return {
     createAuto,
     getAutoList,
+    getAuto,
     clear,
     auto,
     newAuto,

@@ -21,10 +21,15 @@ const router = createRouter({
       component: ()=> import ('../views/ProfilePage.vue')
     },
     {
+      path: '/car/:id',
+      name: 'car',
+      component: ()=> import ('../views/CardsPageid.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'about',
       component: ()=> import ('../views/NotFounPage.vue')
-    }
+    },
   ]
 })
 
