@@ -1,5 +1,5 @@
 <template>
-  <div v-if="auto">
+  <div class="carInfo" v-if="auto">
     <img class="img" :src="auto.image" alt="car" />
     <Card>
       <template #title>{{ auto.brand }} </template>
@@ -69,5 +69,12 @@ const addDislike = () => {
 .img {
   width: 400px;
   height: 300px;
+}
+
+.carInfo{
+  width: 700px;
+  height: 650px;
+  border: 2px gray solid;
+  margin: 30px;
 }
 </style>
