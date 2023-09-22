@@ -1,7 +1,6 @@
 <template>
   <Menubar :model="items">
     <template #start>
-        <img alt="logo" src="/images/logo.svg" height="40" class="mr-2" />
     </template>
     <template #item="{ label, item, props, root, hasSubmenu }">
         <router-link v-if="item.route" v-slot="routerProps" :to="item.route" custom>
