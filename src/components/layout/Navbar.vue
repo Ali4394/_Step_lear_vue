@@ -1,12 +1,6 @@
 <template>
   <div class="card relative z-2">
     <Menubar :model="items" />
-    <button type="button" class="p-link p-ml-auto" @click="googleRegister">
-      <i class="pi pi-user"></i>
-    </button>
-    <button type="button" class="p-link p-ml-auto" @click="createAuto">
-      <i class="pi pi-plus"></i>
-    </button>
   </div>
 </template>
 
@@ -17,29 +11,16 @@ import { onMounted } from "vue";
 import { useAuto } from "@/composable/useAuto";
 import Menubar from "primevue/menubar";
 import { ref } from "vue";
-
+// import { createRouter } from "@/router/index.js";
 const items = ref([
   {
-    label: "File",
+    label: "Home",
     icon: "pi pi-fw pi-file",
     items: [
       {
-        label: "New",
-        icon: "pi pi-fw pi-plus",
-        items: [
-          {
-            label: "Bookmark",
-            icon: "pi pi-fw pi-bookmark",
-          },
-          {
-            label: "Video",
-            icon: "pi pi-fw pi-video",
-          },
-        ],
-      },
-      {
-        label: "Delete",
+        label: "Table",
         icon: "pi pi-fw pi-trash",
+        command: () => createRouter(),
       },
       {
         separator: true,
@@ -79,7 +60,9 @@ const items = ref([
       {
         label: "New",
         icon: "pi pi-fw pi-user-plus",
+        command: () => googleRegister(),
       },
+
       {
         label: "Delete",
         icon: "pi pi-fw pi-user-minus",

@@ -1,33 +1,73 @@
 <template>
-  {{ auto }}
-
   <div v-if="auto">
+    <img class="img" :src="auto.image" alt="car" />
     <Card>
-        <template #title>{{ auto.brand }} </template>
-        <template #content>
-            <p>
-                литые диски, тонировка, люк, обвес, ветровики, рейлинги, ксенон, биксенон, хрустальная оптика, линзованная оптика, дневные ходовые огни, противотуманки, омыватель фар, корректор фар, обогрев зеркал, кожа, комбинированный, аудиосистема, CD, CD-чейнджер, DVD, сабвуфер, ABS, зимний режим, сигнализация, автозапуск, иммобилайзер, полный электропакет, центрозамок, климат-контроль, круиз-контроль, бортовой компьютер, навигационная система, мультируль, подогрев руля, память сидений, память руля, парктроники, камера заднего вида, датчик света, датчик давления в шинах, налог уплачен, техосмотр пройден, вложений не требует
-            </p>
-        </template>
+      <template #title>{{ auto.brand }} </template>
+      <template #content>
+        <p>Объем двигателя: {{ auto.volume }}</p>
+
+        <P>Цвет: <ColorPicker v-model="auto.color" /></P>
+
+        <p>Цена: {{ auto.price }} KZT</p>
+        <div class="btn">
+          <Button style="margin: 5px" label="BUY" severity="info" />
+          <Button
+            style="margin: 5px"
+            label="LIKE"
+            @click="addLike"
+            severity="success"
+          ></Button>
+          <p>{{ likes }}</p>
+          <Button
+            style="margin: 5px"
+            label="DISLIKE"
+            @click="addDislike"
+            severity="secondary"
+          ></Button>
+          <p>{{ dislikes }}</p>
+        </div>
+      </template>
     </Card>
-  </div> 
+  </div>
 </template>
 
 <script setup>
-import {useAuto} from '../composable/useAuto'
-import { onMounted } from 'vue';
+import { useAuto } from "../composable/useAuto";
+import { onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import Card from 'primevue/card';
+import Card from "primevue/card";
+import Button from "primevue/button";
+import { ref } from "vue";
+import ColorPicker from "primevue/colorpicker";
 
+const router = useRouter();
 
+const { auto, getAuto } = useAuto();
 
-const router = useRouter()
+onMounted(async () => {
+  await getAuto(useRoute().params.id);
+});
 
-const {auto, getAuto} = useAuto()
+const likes = ref(0);
+const dislikes = ref(0);
 
-onMounted(async () =>{
-    await getAuto(useRoute().params.id)
-})
+const addLike = () => {
+  likes.value += 1;
+};
 
-
+const addDislike = () => {
+  dislikes.value += 1;
+};
 </script>
+
+<style scoped>
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  width: 400px;
+  height: 300px;
+}
+</style>
