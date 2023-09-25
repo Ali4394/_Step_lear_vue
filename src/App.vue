@@ -6,25 +6,13 @@
 // import ToastButton from "@/components/ToastButton.vue";
 
 import navbar from "@/components/layout/Navbar.vue";
-import carAddModul from "@/components/carAddModul.vue";
+// import carAddModul from "@/components/carAddModul.vue";
 // import carcard from "@/components/carCard.vue";
-import { RouterView } from "vue-router";
-
-
+// import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <carAddModul />
   <navbar />
-
-  <!-- <ToastButton />
- 
-  <CarTable  />
-  <panel />
-  <carcard />
-  <carlist />
-  <carItem /> -->
-  <router-view />
 </template>
 
 <style scoped></style>
