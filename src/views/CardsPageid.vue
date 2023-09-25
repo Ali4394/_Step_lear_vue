@@ -10,7 +10,7 @@
 
         <p>Цена: {{ auto.price }} KZT</p>
         <div class="btn">
-          <Button style="margin: 5px" label="BUY" severity="info" />
+          <Button style="margin: 5px" label="BUY" severity="info" @click="addToCart" />
           <Button
             style="margin: 5px"
             label="LIKE"
@@ -57,6 +57,10 @@ const addLike = () => {
 
 const addDislike = () => {
   dislikes.value += 1;
+};
+
+const addToCart = () => {
+  alert("You add car to cart")
 };
 </script>
 

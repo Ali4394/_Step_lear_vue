@@ -368,6 +368,7 @@ const carCase = [
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+
 }
 
 .center-content {

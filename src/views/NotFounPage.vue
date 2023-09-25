@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="whiteCar">
     <img
       style="width: 220px; height: 180px"
       src="../assets/car-removebg.png"
@@ -28,4 +28,6 @@ import { ref } from "vue";
     transform: translateX(160%); /* Adjust the distance of the animation */
   }
 }
+
+
 </style>

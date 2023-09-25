@@ -1,7 +1,7 @@
 import "./assets/main.css";
 
 import PrimeVue from "primevue/config";
-import "primevue/resources/themes/lara-dark-indigo/theme.css";
+import "primevue/resources/themes/lara-dark-indigo/theme.css"; 
 import "primevue/resources/primevue.min.css";
 import Menubar from "primevue/menubar";
 import ToastService from "primevue/toastservice";

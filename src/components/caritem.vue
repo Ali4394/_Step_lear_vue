@@ -28,6 +28,7 @@ function changeColor(color){
 </script>
 
 <template>
+  <div class="colum">
   <div class="card">
   <card>
     <template #header > <img class="img" :src="auto.image" alt="car" /></template>
@@ -57,6 +58,7 @@ function changeColor(color){
   <!-- </div> -->
 </card>
 </div>
+</div>
 </template>
 <style scoped>
 
@@ -64,6 +66,7 @@ function changeColor(color){
 .card{
   display: flex;
   margin: 10px;
+  justify-content: center;
 
 }
 
@@ -78,6 +81,21 @@ max-height: 350px;
 min-height: 200px;
 }
 
+
+@media only screen and (min-width: 480px) {
+  .colum{
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+  
+  }
+
+  .img{
+
+  width: 100%;
+  height: 100%;
+    }
+}
 </style>
 
 
